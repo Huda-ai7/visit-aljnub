@@ -1,0 +1,362 @@
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+header {
+  background-image: url("img/gif-header.gif");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  filter: grayscale(30%);
+}
+header h1 {
+  font-size: 3rem;
+}
+/* Dropdown button hover */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-menue {
+  border-radius: 10px;
+  display: none;
+  position: absolute;
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  min-width: 160px;
+  z-index: 1;
+  /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
+}
+.dropdown-menue a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-menue a:hover {
+  color: #68760a;
+}
+.dropdown:hover .dropdown-menue {
+  display: block;
+}
+/* Dropdown button hover */
+
+/* expending underline effect */
+.anchor-h {
+  letter-spacing: 0.13em;
+  display: inline-block;
+  position: relative;
+}
+.anchor-h::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transition: transform 0.25s ease-out;
+}
+.anchor-h:hover::after {
+  transform: scaleX(1);
+}
+.anchor-h::after {
+  transform-origin: bottom center;
+}
+.anchor-h:hover::after {
+  transform-origin: bottom center;
+}
+/* expending underline effect */
+
+.carsousel-img {
+  filter: grayscale(40%);
+  float: left;
+  width: 730px;
+  height: 730px;
+  object-fit: cover;
+}
+
+.nav-head {
+  background-color: rgb(0 0 0 / 75%);
+  backdrop-filter: blur(8px);
+}
+
+.blur-filter {
+  backdrop-filter: blur(8px);
+  background-color: rgb(255 255 255 /30%);
+}
+
+.blur-card-filter {
+  backdrop-filter: blur(1px);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.h-effect:hover {
+  transform: translateX(-1rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+.btn-header {
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: unset;
+  --bs-btn-hover-border-color: #fff;
+}
+.media-card {
+  width: 18rem;
+}
+.btn-h {
+  background-color: #92a50e;
+  color: white;
+}
+.btn-h:hover {
+  color: #92a50e;
+  background-color: white;
+  border-color: #92a50e;
+}
+.btn-h-2 {
+  border-color: #92a50e;
+  color: #92a50e;
+  fill: #92a50e;
+}
+.btn-h-2:hover {
+  background-color: #92a50e;
+  color: #fff;
+  fill: #fff;
+}
+
+/* map */
+#map {
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+.pin {
+  background: #68760a;
+  position: absolute;
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  text-decoration: none;
+}
+.pin::before {
+  content: "";
+  background: #68760a;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: pulse 1.3s ease-in-out infinite;
+}
+.pin span {
+  display: inline-block;
+  white-space: nowrap;
+  position: absolute;
+  left: 1.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
+  background: #fff;
+  border-radius: 3em;
+  padding: 0.3em 0.6em;
+  font-size: 0.9em;
+}
+.active-pin span,
+.pin span:hover {
+  background-color: #68760a;
+  color: #fff;
+}
+.jazan {
+  bottom: 30%;
+  left: 21%;
+}
+.abha {
+  bottom: 35%;
+  left: 30%;
+}
+.najran {
+  bottom: 40%;
+  left: 22%;
+}
+.albaha {
+  bottom: 27%;
+  left: 30%;
+}
+/* map */
+
+.h-efefect-2 {
+  transition: transform 0.2s;
+}
+.h-efefect-2:hover {
+  transform: scale(0.9);
+}
+
+/* page design */
+.parent {
+  position: relative;
+  top: 0;
+  right: 0;
+}
+.parent .img-1 {
+  width: 270px;
+  height: auto;
+  position: relative;
+  top: 20px;
+  left: 270px;
+}
+.parent .img-2 {
+  width: 270px;
+  height: auto;
+  position: absolute;
+  top: 35px;
+  left: 125px;
+}
+.parent .img-3 {
+  width: 270px;
+  height: auto;
+  position: absolute;
+  top: 210px;
+  right: 150px;
+}
+/* page design */
+
+/* regstration form */
+.reg-form-c {
+  background-color: #68760a;
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.2);
+}
+
+/* Events calendar */
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+.dates div {
+  cursor: pointer;
+}
+.dates div:hover {
+  background-color: #e0e0e032;
+}
+.dates div .empty {
+  visibility: hidden;
+}
+.current-day {
+  background-color: #92a50e;
+  border-radius: 5px;
+  padding: 4px;
+  color: #fff;
+}
+.current-day:hover {
+  color: #92a50e;
+  border: 1px solid;
+}
+
+/* main clases */
+#match-message {
+  display: none;
+}
+.cate-events a.active-cate {
+  background-color: #92a50e;
+  color: #fff;
+}
+/* Events calendar */
+
+/* Chat Ai */
+.chatbot-message {
+  border-color: #92a50e;
+  border-bottom: 1px solid #cccccc;
+  height: 32rem;
+  overflow-y: auto;
+}
+.message {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  max-width: 70%;
+}
+.user-message {
+  background-color: #92a50e;
+  color: #fff;
+  margin-left: auto;
+}
+.bot-message {
+  background-color: #eae8e8;
+  color: #92a50e;
+  margin-right: auto;
+}
+/* Chat Ai */
+
+/* tour-guide */
+#noMatchM {
+  display: none;
+}
+/* tour-guide */
+
+/* Footer */
+footer {
+  background-color: #000;
+  padding: 50px;
+}
+.h2-footer {
+  font-size: 5rem;
+  font-weight: 1rem;
+}
+.input-wrapp {
+  position: relative;
+  display: inline-block;
+}
+.input-wrapp input::placeholder {
+  font-weight: lighter;
+  color: white;
+}
+.input-wrapp button {
+  position: absolute;
+  top: 14%;
+  right: 30px;
+  border: none;
+  background-color: #bbd412;
+  cursor: pointer;
+  border-radius: 60%;
+}
+
+.d-btn {
+  color: #000;
+}
+.d-btn:hover {
+  color: #cccccc;
+  text-decoration: underline;
+}
+/* phone */
+@media only screen and (max-width: 750px) {
+  .f-icon {
+    width: 100px;
+    height: 100px;
+  }
+  .media-card {
+    width: 14rem;
+    height: auto;
+  }
+  .media-img {
+    width: 222px;
+    height: 250px;
+  }
+  .f-ul {
+    gap: 1rem !important;
+    font-size: xx-small;
+  }
+  .reg-form-c {
+    background-color: unset;
+    background-image: url("img/card-2.png");
+    filter: grayscale(0.6);
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    background-position: 30% 30%;
+    background-repeat: no-repeat;
+  }
+  .h2-footer {
+    font-size: 3rem;
+  }
+}

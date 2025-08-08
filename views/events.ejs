@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logomark.png" />
+    <title>Visit Aljanub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Fonts -->
+  </head>
+  <body class="bg-tertiary">
+    <!-- Header -->
+    <nav
+      class="navbar navbar-expand-lg small shadow-sm custom-nav py-3"
+      style="background-color: black"
+    >
+      <div class="container">
+        <a href="<%= homeLink %>" class="navbar-brand">
+          <img
+            src="img/Asset 1.svg"
+            width="80"
+            height="auto"
+            alt="website image"
+          />
+        </a>
+        <button
+          type="button"
+          class="navbar-toggler bg-light"
+          data-bs-toggle="collapse"
+          data-bs-target="#blog-navbar"
+          aria-controls="blog-navbar"
+          aria-expanded="false"
+          aria-label="Toggle Navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="blog-navbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- Dropdown hover button -->
+            <div class="dropdown">
+              <li class="nav-item">
+                <a href="#" class="nav-link text-light fw-semibold anchor-h"
+                  >Destination</a
+                >
+              </li>
+              <ul class="dropdown-menue mt-1">
+                <li><a href="/dest-1" class="fs-6">Jazan</a></li>
+                <li><a href="/dest-2" class="fs-6">Asir</a></li>
+                <li><a href="/dest-3" class="fs-6">Albaha</a></li>
+                <li><a href="/dest-4" class="fs-6">Najran</a></li>
+              </ul>
+            </div>
+            <!-- Dropdown hover button -->
+            <li class="nav-item">
+              <a
+                href="/trip-planer"
+                class="nav-link text-light fw-semibold anchor-h"
+                >Trip planer</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="/tour-guides"
+                class="nav-link text-light fw-semibold anchor-h"
+                >Tour guid</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/events" class="nav-link text-light fw-semibold anchor-h"
+                >Calendar</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+
+    <!-- Calendar -->
+    <section class="calendar my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div
+              class="header d-flex justify-content-between align-items-center mb-3"
+            >
+              <button id="prevM" class="btn btn-sm btn-h fs-5">&lt;</button>
+              <h2 id="month-year" style="color: #92a50e"></h2>
+              <button id="nextM" class="btn btn-sm btn-h fs-5">&gt;</button>
+            </div>
+            <div
+              class="row d-flex justify-content-evenly align-items-center days gx-5"
+            >
+              <div class="day col-md-1 fw-light">Sun</div>
+              <div class="day col-md-1 fw-light">Mon</div>
+              <div class="day col-md-1 fw-light">Tue</div>
+              <div class="day col-md-1 fw-light">Wed</div>
+              <div class="day col-md-1 fw-light">Thu</div>
+              <div class="day col-md-1 fw-light">Fri</div>
+              <div class="day col-md-1 fw-light">Sat</div>
+            </div>
+            <div class="row d-flex align-items-center justify-content-center">
+              <div class="dates text-center p-2 rounded" id="dates"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Calendar -->
+
+    <!-- Events List -->
+    <section class="event-list my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="list-group small" id="post-container">
+              <div
+                class="list-group-item bg-light fw-bold d-flex justify-content-between align-items-center fs-5"
+                style="color: #92a50e"
+              >
+                List all the Events
+                <span
+                  class="badge p-2 rounded-pill"
+                  style="background-color: #92a50e"
+                >
+                  <span class="pnum">0</span> Post Available</span
+                >
+              </div>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action post nat"
+              >
+                <div class="row align-items-center g-2">
+                  <div class="col-md-4">
+                    <div class="image-holder">
+                      <img
+                        src="img/card-1.jpg"
+                        class="rounded img-fluid mb-md-0 mt-md-0 mt-2"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <h5>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </h5>
+                    <p class="text-secondary">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Harum qui ad, architecto aliquid repellendus eius delectus
+                      unde cum, ea libero eligendi nobis tenetur distinctio
+                      deserunt, recusandae amet iste saepe et?
+                    </p>
+                    <p class="d-inline-flex align-items-center">
+                      <span
+                        class="badge rounded-pill me-2"
+                        style="background-color: #92a50e"
+                      >
+                        <strong>Posted on:</strong>
+                        <span class="fw-light">2nd aug 2025</span>
+                      </span>
+                      <span
+                        class="badge rounded-pill me-2"
+                        style="background-color: #92a50e"
+                      >
+                        <strong>Categories:</strong>
+                        <span class="fw-light">Nature</span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action post cul"
+              >
+                <div class="row align-items-center g-2">
+                  <div class="col-md-4">
+                    <div class="image-holder">
+                      <img
+                        src="img/card-3.png"
+                        class="rounded mb-md-0 mt-md-0 mt-2"
+                        width="305.4rem"
+                        height="305.4rem"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <h5>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </h5>
+                    <p class="text-secondary">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Harum qui ad, architecto aliquid repellendus eius delectus
+                      unde cum, ea libero eligendi nobis tenetur distinctio
+                      deserunt, recusandae amet iste saepe et?
+                    </p>
+                    <p class="d-inline-flex align-items-center">
+                      <span
+                        class="badge rounded-pill me-2"
+                        style="background-color: #92a50e"
+                      >
+                        <strong>Posted on:</strong>
+                        <span class="fw-light">2nd aug 2025</span>
+                      </span>
+                      <span
+                        class="badge rounded-pill me-2"
+                        style="background-color: #92a50e"
+                      >
+                        <strong>Categories:</strong>
+                        <span class="fw-light">Culture</span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action post adv"
+              >
+                <div class="row align-items-center g-2">
+                  <div class="col-md-4">
+                    <div class="image-holder">
+                      <img
+                        src="img/card-2.png"
+                        class="rounded mb-md-0 mt-md-0 mt-2"
+                        width="305.4rem"
+                        height="305.4rem"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <h5>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </h5>
+                    <p class="text-secondary">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Harum qui ad, architecto aliquid repellendus eius delectus
+                      unde cum, ea libero eligendi nobis tenetur distinctio
+                      deserunt, recusandae amet iste saepe et?
+                    </p>
+                    <p class="d-inline-flex align-items-center">
+                      <span
+                        class="badge rounded-pill me-2"
+                        style="background-color: #92a50e"
+                      >
+                        <strong>Posted on:</strong>
+                        <span class="fw-light">2nd aug 2025</span>
+                      </span>
+                      <span
+                        class="badge rounded-pill me-2"
+                        style="background-color: #92a50e"
+                      >
+                        <strong>Categories:</strong>
+                        <span class="fw-light">Adventure</span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action post sho"
+              >
+                <div class="row align-items-center g-2">
+                  <div class="col-md-4">
+                    <div class="image-holder">
+                      <img
+                        src="img/card-2.png"
+                        class="rounded mb-md-0 mt-md-0 mt-2"
+                        width="305.4rem"
+                        height="305.4rem"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <h5>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </h5>
+                    <p class="text-secondary">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Harum qui ad, architecto aliquid repellendus eius delectus
+                      unde cum, ea libero eligendi nobis tenetur distinctio
+                      deserunt, recusandae amet iste saepe et?
+                    </p>
+                    <p class="d-inline-flex align-items-center">
+                      <span
+                        class="badge rounded-pill me-2"
+                        style="background-color: #92a50e"
+                      >
+                        <strong>Posted on:</strong>
+                        <span class="fw-light">2nd aug 2025</span>
+                      </span>
+                      <span
+                        class="badge rounded-pill me-2"
+                        style="background-color: #92a50e"
+                      >
+                        <strong>Categories:</strong>
+                        <span class="fw-light">Shopping</span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action post sho"
+              >
+                <div class="row align-items-center g-2">
+                  <div class="col-md-4">
+                    <div class="image-holder">
+                      <img
+                        src="img/card-2.png"
+                        class="rounded mb-md-0 mt-md-0 mt-2"
+                        width="305.4rem"
+                        height="305.4rem"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <h5>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </h5>
+                    <p class="text-secondary">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Harum qui ad, architecto aliquid repellendus eius delectus
+                      unde cum, ea libero eligendi nobis tenetur distinctio
+                      deserunt, recusandae amet iste saepe et?
+                    </p>
+                    <p class="d-inline-flex align-items-center">
+                      <span
+                        class="badge rounded-pill me-2"
+                        style="background-color: #92a50e"
+                      >
+                        <strong>Posted on:</strong>
+                        <span class="fw-light">2nd aug 2025</span>
+                      </span>
+                      <span
+                        class="badge rounded-pill me-2"
+                        style="background-color: #92a50e"
+                      >
+                        <strong>Categories:</strong>
+                        <span class="fw-light">Shopping</span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <p
+                id="match-message"
+                class="text-dark p-3 fs-4 text-center rounded mt-5"
+              >
+                NO Event Match
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="list-group small">
+              <div
+                class="list-group-item bg-light fw-bold"
+                style="color: #92a50e"
+              >
+                Categories
+              </div>
+              <div class="cate-events">
+                <a
+                  href="#"
+                  id="all"
+                  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                >
+                  All
+                </a>
+                <a
+                  href="#"
+                  id="nat"
+                  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                >
+                  Nature
+                </a>
+                <a
+                  href="#"
+                  id="adv"
+                  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                >
+                  Adventure
+                </a>
+                <a
+                  href="#"
+                  id="sho"
+                  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                >
+                  Shopping
+                </a>
+                <a
+                  href="#"
+                  id="cul"
+                  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                >
+                  Cultures
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Events List -->
+
+    <!-- Footer -->
+    <footer class="container-fluid p-3 p-md-5">
+      <div class="row mt-3">
+        <div
+          class="col-md-12 d-flex justify-content-md-end justify-content-center p-0"
+        >
+          <ul class="list-unstyled d-flex gap-5 m-0 f-ul">
+            <li>
+              <a href="#" class="text-light text-decoration-none">Contact us</a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="#fff"
+                class="bi bi-arrow-up-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"
+                />
+              </svg>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none"
+                >Follow us instagram</a
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="#fff"
+                class="bi bi-arrow-up-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"
+                />
+              </svg>
+            </li>
+            <li>
+              <p class="text-light">
+                Copy &copy; <span class="year">2020</span> All rights are
+                reserverd
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer -->
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logomark.png" />
+    <title>Visit Aljanub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Fonts -->
+  </head>
+  <body class="bg-tertiary">
+    <div class="container mt-5">
+      <%- include("partial/messages.ejs") %>
+      <section class="tuor-guide my-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <img
+                src="<%= tourGuide.profileImage %>"
+                width="360"
+                alt=" tour guide image"
+              />
+            </div>
+            <div class="col-md-6">
+              <span class="fs-5"><%= tourGuide.name %></span>
+              <p class="fs-5"><%= tourGuide.description %></p>
+              <span class="fs-5"
+                ><%= tourGuide.rate %>
+                <span class="d-inline-flex align-items-center">
+                  <img
+                    src="img/Saudi_Riyal_Symbol.svg.png"
+                    width="14"
+                    alt="" /></span
+              ></span>
+              <p class="mt-1">
+                <span class="text-bg-dark p-2 rounded-pill badge"
+                  ><%= tourGuide.languages.join(', ') %></span
+                >
+                <% tourGuide.categories.forEach(category => { %>
+                <span class="text-bg-dark p-2 rounded-pill badge"
+                  ><%= category %></span
+                >
+                <% }); %>
+                <span class="text-bg-dark p-2 rounded-pill badge"
+                  ><%= tourGuide.location %></span
+                >
+              </p>
+              <!-- Booking Form -->
+              <% if(!user){ %>
+              <div class="alert alert-warning" role="alert">
+                <a href="/users/login">Sign in</a> to book this tour guide.
+              </div>
+              <% } else{ %>
+              <form
+                id="bookingForm"
+                action="/tour-guides/<%= tourGuide._id %>/book"
+                method="POST"
+              >
+                <div class="mb-3">
+                  <label for="bookingDate" class="form-label fw-semibold fs-5"
+                    >Select Date</label
+                  >
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="bookingDate"
+                    name="date"
+                    min="<%= new Date().toISOString().split('T')[0] %>"
+                    required
+                  />
+                  <div id="availabilityMessage" class="form-text"></div>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-outline-dark"
+                  id="bookButton"
+                >
+                  Book now
+                </button>
+              </form>
+              <% } %>
+              <!-- Booking Form -->
+            </div>
+          </div>
+          <!-- Reviews -->
+          <div class="row mt-4">
+            <div class="col-md-9">
+              <h3 class="fw-semibold">Reviews</h3>
+              <% if (reviews.length === 0) { %>
+              <p class="text-muted fs-6">No reviews yet.</p>
+              <% } else { %> <% reviews.forEach(review => { %>
+              <div class="mb-3 pb-3 border-bottom">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <strong><%= review.user.username %></strong>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      class="mx-1"
+                      fill="#c5c51cf5"
+                      class="bi bi-star-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                      />
+                    </svg>
+                  </div>
+                  <small class="text-muted"
+                    ><%= new Date(review.createdAt).toLocaleDateString()
+                    %></small
+                  >
+                </div>
+                <p class="mt-2 mb-0"><%= review.comment %></p>
+              </div>
+              <% }) %> <% } %>
+            </div>
+
+            <!-- Check if user has completed bookings but not reviewed yet -->
+            <div class="col-md-9">
+              <form
+                action="/tour-guides/<%= tourGuide._id %>/review"
+                method="POST"
+              >
+                <div class="mb-3">
+                  <label for="rating" class="form-label">Rating</label>
+                  <select
+                    class="form-select"
+                    id="rating"
+                    name="rating"
+                    required
+                  >
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="3">3 - Good</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="1">1 - Poor</option>
+                  </select>
+                </div>
+                <div class="form-floating">
+                  <textarea
+                    class="form-control"
+                    placeholder="Leave a comment here"
+                    name="comment"
+                    id="comment"
+                    style="border-color: #000; height: 100px"
+                  ></textarea>
+                  <label for="comment">Add Review</label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Send</button>
+              </form>
+            </div>
+            <!-- Reviews -->
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer class="container-fluid mb-0">
+      <div class="row mt-3">
+        <div
+          class="col-md-12 d-flex justify-content-md-end justify-content-center p-0"
+        >
+          <ul class="list-unstyled d-flex gap-5 m-0 f-ul">
+            <li>
+              <a href="#" class="text-light text-decoration-none">Contact us</a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="#fff"
+                class="bi bi-arrow-up-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"
+                />
+              </svg>
+            </li>
+            <li>
+              <a href="#" class="text-light text-decoration-none"
+                >Follow us instagram</a
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="#fff"
+                class="bi bi-arrow-up-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"
+                />
+              </svg>
+            </li>
+            <li>
+              <p class="text-light">
+                Copy &copy; <span class="year">2020</span> All rights are
+                reserverd
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer -->
+
+    <script>
+      // update the copyright year
+      const yearEl = document.querySelector(".year");
+      const currentYear = new Date().getFullYear();
+      yearEl.textContent = currentYear;
+      // Check availability when date is selected
+      document.addEventListener("DOMContentLoaded", function () {
+        const dateInput = document.getElementById("bookingDate");
+        const availabilityMessage = document.getElementById(
+          "availabilityMessage"
+        );
+        const bookButton = document.getElementById("bookButton");
+
+        if (dateInput) {
+          dateInput.addEventListener("change", async function () {
+            const selectedDate = this.value;
+
+            if (!selectedDate) {
+              availabilityMessage.textContent = "";
+              bookButton.disabled = true;
+              return;
+            }
+
+            try {
+              const response = await fetch(
+                `/tour-guides/<%= tourGuide._id %>/check-availability`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ date: selectedDate }),
+                }
+              );
+
+              const data = await response.json();
+
+              if (data.available) {
+                availabilityMessage.textContent = "This date is available!";
+                availabilityMessage.className = "form-text text-success";
+                bookButton.disabled = false;
+              } else {
+                availabilityMessage.textContent =
+                  "Sorry, this date is not available. Please choose another date.";
+                availabilityMessage.className = "form-text text-danger";
+                bookButton.disabled = true;
+              }
+            } catch (error) {
+              console.error("Error checking availability:", error);
+              availabilityMessage.textContent =
+                "Error checking availability. Please try again.";
+              availabilityMessage.className = "form-text text-danger";
+              bookButton.disabled = true;
+            }
+          });
+        }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
